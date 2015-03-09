@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>屈臣氏</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+	<section class="wrapper">
+		<ul id="trans" class="drag-parent">
+			<li class="drag-box cls1" style="background-image: url('images/p1-1.png')"><a class="icon-up running"></a></li>
+			<li class="drag-box cls2" id="transX">
+				<div class="drag-box-x cls2-1" style="background-image: url('images/p2-1.png')">
+					<a class="icon-left running"></a>
+					<a class="icon-up running"></a>
+					<a class="icon-right running"></a>
+				</div>
+				<div class="drag-box-x cls2-2" style="background-image: url('images/p3-1.png')"><a class="icon-right running"></a><a class="icon-up running"></a></div>
+				<div class="drag-box-x cls2-3" style="background-image: url('images/p4-1.png')"><a class="icon-left running"></a><a class="icon-up running"></a></div>
+			</li>
+			<li class="drag-box cls3" style="background-image: url('images/p5.png')"><a class="icon-up running"></a></li>
+			<li class="drag-box cls4" style="background-image: url('images/p6.png')"><a class="icon-up running"></a></li>
+		</ul>
+	</section>
+	<script type="text/javascript" src="scripts/drag2.2.1.js"></script>
+	<script type="text/javascript" src="scripts/zepto.js"></script>
+	<script type="text/javascript">
+
+	window.onload = function() {
+
+		drag('trans', 'drag-box', 'y');
+		drag('transX', 'drag-box-x', 'x');
+	}
+	</script>
+</body>
+</html>

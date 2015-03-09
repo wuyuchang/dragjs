@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>屈臣氏</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/reset.css?0.4">
+
+	<script type="text/javascript" src="../../lib/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="../js/WeixinApi.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../js/jweixin-1.0.0.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./scripts/ruiyi.js"></script>
+</head>
+<body>
+	<section class="wrapper">
+		<ul id="trans" class="drag-parent">
+			<li class="drag-box cls1" style="background-image: url('images/p1-1.png')">
+				<h2>Letsaqua海洋水润美妆系列</h2>
+				<h3>开启海洋寻宝之旅</h3>
+				<p>进入奇妙海洋世界，找找看里面蕴藏着什么珍贵的美肤成分和神奇的美妆法宝吧！</p>
+				<a class="icon-up running"></a>
+			</li>
+			<li class="drag-box cls2" id="transX">
+				<div class="drag-box-x cls2-1" style="background-image: url('images/p2-1.png')">
+					<span class="fish1"></span>
+					<span class="fish2"></span>
+					<img class="before" src="images/g2-1.gif" alt="">
+					<img src="images/font2-1.png" class="content" alt="" style="display: none;">
+					<img src="images/t2-1.png" class="t2-1" alt="" style="display: none;">
+					<a class="g2-1"></a>
+					<a class="icon-left running"></a>
+					<a class="icon-up running"></a>
+					<a class="icon-right running"></a>
+				</div>
+				<div class="drag-box-x cls2-2" style="background-image: url('images/p3-1.png')">
+					<div></div>
+					<img class="cls2-2-1" src="images/font2-2-1.png"  style="display: none;"/>
+					<!-- <img class="cls2-2-2" src="images/font2-2-2.png" /> -->
+					<img class="t2-2" src="images/t2-2-1.png" alt="">
+					<a class="icon-left running"></a>
+					<a class="icon-up running"></a>
+					<a class="icon-right running"></a>
+				</div>
+				<div class="drag-box-x cls2-3" style="background-image: url('images/p4-1.jpg')">
+					<img src="images/font2-3.png" class="content" alt="" style="display: none;">
+					<img src="images/t2-3.png" class="t2-3" alt="" style="display: none;">
+					<a class="icon-left running"></a>
+					<a class="icon-up running"></a>
+					<a class="icon-right running"></a>
+					<a class="g2-3"></a>
+				</div>
+			</li>
+			<li class="drag-box cls3" style="background-image: url('images/p5.png')">
+				<img class="cls3-1" src="images/logo.png" alt="">
+				<img class="cls3-2" src="images/font5-1.png" alt="">
+				<img class="cls3-3" src="images/font5-2.png" alt="">
+				<img class="cls3-4" src="images/font5-3.png" alt="">
+				<a class="icon-up running"></a>
+			</li>
+			<li class="drag-box cls4" style="background-image: url('images/p6.png')">
+				<a class="btn-invitation"></a>
+				<a class="btn-luck"></a>
+				<a class="btn-buy" href="http://www.baidu.com"></a>
+				<a class="icon-up running"></a>
+				<p class="product-detail1"></p>
+				<form action="" class="form-luck product-detail2">
+					<fieldset>
+						<a class="close"></a>
+						<img src="images/form_tip.png" alt="">
+						<input type="text" id="name" placeholder="姓名:" maxlength="25">
+						<input type="text" id="phone" placeholder="手机:" maxlength="25" oninput='this.value = this.value.replace(/\D+/g, "")'>
+						<textarea name="" id="address" cols="30" rows="10" placeholder="邮寄地址"></textarea>
+						<a class="submit"></a>
+					</fieldset>
+				</form>
+			</li>
+		</ul>
+	</section>
+	<script type="text/javascript" src="scripts/drag2.2.js"></script>
+	<script type="text/javascript" src="scripts/zepto.js"></script>
+	<script type="text/javascript">
+
+	window.onscroll = function(e) {
+		e.preventDefault();
+	}
+
+	window.onload = function() {
+
+		$('.g2-1').on('touchstart', function(e) {
+			e.stopPropagation(); e.preventDefault();
+			if ($('.cls2-1 .content').css('display') == 'none') {
+
+				$('.cls2-1 .content').show().addClass('animated rollIn').on('webkitAnimationEnd', function() {
+					$('.cls2-1 .content').removeClass('animated rollIn');
+				});
+			}
+		});
+
+		$('.g2-3').on('touchstart', function(e) {
+			e.stopPropagation(); e.preventDefault();
+			if ($('.cls2-3 .content').css('display') == 'none') {
+
+				$('.cls2-3 .content').show().addClass('animated rollIn').on('webkitAnimationEnd', function() {
+					$('.cls2-3 .content').removeClass('animated rollIn');
+				});
+			}
+		});
+
+		$('.cls2-2 div').on('touchstart', function(e) {
+			e.stopPropagation(); e.preventDefault();
+			if ($('.cls2-2-1').css('display') == 'none') {
+
+				$('.cls2-2-1').show().addClass('animated rollIn').on('webkitAnimationEnd', function() {
+					$('.cls2-2-1').removeClass('animated rollIn');
+				});
+			} else {
+				if ($('.cls2-2-1').attr('src') == 'images/font2-2-1.png') {
+					$('.cls2-2 div').css('background-image', 'url(images/d2-2-2.gif)');
+					$('.cls2-2-1').addClass('animated fadeOutDown').on('webkitAnimationEnd', function() {
+						$('.cls2-2-1').removeClass('animated fadeOutDown').attr('src', 'images/font2-2-2.png').addClass('animated fadeInDown');
+					});
+				} else {
+					$('.cls2-2 div').css('background-image', 'url(images/d2-2-1.gif)');
+					$('.cls2-2-1').addClass('animated fadeOutDown').on('webkitAnimationEnd', function() {
+						$('.cls2-2-1').removeClass('animated fadeOutDown').attr('src', 'images/font2-2-1.png').addClass('animated fadeInDown');
+					});
+				}
+			}
+			
+		});
+
+		$('.btn-invitation').on('touchstart', function(e) {
+			$('.cls4 .product-detail1').show().addClass('animated fadeIn');
+		});
+
+		$('.btn-luck').on('touchstart', function(e) {
+			$('.cls4 .product-detail2').show().addClass('animated fadeIn');
+		});
+
+		$('.btn-buy').on('touchstart', function(e) {
+			e.preventDefault();
+			location.href = $(this).attr('href');
+		});
+
+		// 防止触发父级点击事件，阻止冒泡
+		$('.form-luck input, .form-luck textarea, .form-luck .submit, .btn-buy').on('touchend', function(e) {
+			e.stopPropagation();
+			e.cancelBubble = true;
+		});
+
+		$('.form-luck .close').on('touchstart', function(e) {
+			e.stopPropagation(); e.preventDefault();
+			$('.form-luck').hide();
+		});
+
+		$('.form-luck').on('touchstart', function(e) {
+			e.stopPropagation(); e.preventDefault();
+		});
+
+		$('.form-luck, .form-luck .close').on('touchmove', function(e) {
+			console.log(1);
+			e.stopPropagation(); e.preventDefault();
+		});
+
+		$('.form-luck, .form-luck .close').on('touchend', function(e) {
+			e.stopPropagation(); e.preventDefault();
+		});
+
+
+
+
+		$('.product-detail, .product-detail1').on('touchend', function(e) {
+
+			var $this = $(this);
+			$(this).addClass('animated fadeOut');
+
+			$(this).on('webkitAnimationEnd', function() {
+				$this.hide();
+				$this.removeClass('animated fadeOut fadeIn');
+				$this.off('webkitAnimationEnd');
+			});
+		});
+
+		var $all = $('.cls1 h2, .cls1 h3, .cls1 p, .cls2-1 .content, .cls2-1 .t2-1, .cls2-2 .t2-2, .cls2-3 .content, .cls2-3 .t2-3, .cls2-2-1, .cls3-1, .cls3-2, .cls3-3, .cls3-4, .btn-invitation, .btn-luck, .btn-buy, .product-detail, .product-detail1, .product-detail2'),
+			NONE = {
+				'display': 'none',
+				'-webkit-animation': ''
+			},
+			$xEle = null;
+
+		// 刚进来第一个页面的动画
+		$('#trans').children().eq(0).find('h2').show().addClass('animated bounceInLeft');
+		$('#trans').children().eq(0).find('h3').show().addClass('animated bounceInRight');
+		$('#trans').children().eq(0).find('p').show().addClass('animated bounceInUp');
+
+		drag('trans', 'drag-box', 'y', {
+			// 触摸结束
+			touchend : function(data) {
+
+				var $now = $(data.now);
+
+				if ($now.hasClass('cls1')) {
+					$('.cls1 h2').show().addClass('animated bounceInLeft');
+					$('.cls1 h3').show().addClass('animated bounceInRight');
+					$('.cls1 p').show().addClass('animated bounceInUp');
+				} else if ($now.hasClass('cls3')) {
+					$('.cls3-1').show().addClass('animated bounceInLeft');
+					$('.cls3-2').show().addClass('animated bounceInLeft').css('-webkit-animation-delay', '.3s');
+					$('.cls3-3').show().addClass('animated bounceInUp').css('-webkit-animation-delay', '.5s');
+					$('.cls3-4').show().addClass('animated bounceInRight').css('-webkit-animation-delay', '.7s');
+				} else if ($now.hasClass('cls4')) {
+					$('.btn-invitation, .btn-luck, .btn-buy').show().addClass('animated rubberBand');
+				}
+			},
+			// 动画结束
+			pagend : function(data) {
+
+				var $now = $(data.now)
+
+				if ($now.hasClass('cls1')) {
+					$all.not('.cls1 h2, .cls1 h3, .cls1 p').css(NONE);
+				} else if ($now.hasClass('cls2')) {
+					if ($xEle && $xEle.hasClass('cls2-2')) {
+						$all.not('.cls2-2-1').css(NONE);
+					} else if ($xEle && $xEle.hasClass('cls2-3')) {
+						$all.not('.cls2-3 .content').css(NONE);
+					} else {
+						$all.not('.cls2-1 .content').css(NONE);
+					}
+				} else if ($now.hasClass('cls3')) {
+					$all.not('.cls3-1, .cls3-2, .cls3-3, .cls3-4').css(NONE);
+				} else if ($now.hasClass('cls4')) {
+					$all.not('.btn-invitation, .btn-luck, .btn-buy').css(NONE);
+				}
+			}
+		});
+
+
+		drag('transX', 'drag-box-x', 'x', {
+			touchstart : function(data) {
+				var $now = $(data.current);
+
+				if ($now.hasClass('cls2-1') && $('.cls2-1 .t2-1').css('display') == 'none') {
+					$('.cls2-1 .t2-1').show().addClass('animated fadeInDown').on('webkitAnimationEnd', function(){
+						$('.cls2-1 .t2-1').removeClass('animated fadeInDown');
+					});
+				} else if ($now.hasClass('cls2-2') && $('.cls2-2 .t2-2').css('display') == 'none') {
+					$('.cls2-2 .t2-2').show().addClass('animated fadeInDown').on('webkitAnimationEnd', function() {
+						$('.cls2-2 .t2-2').removeClass('animated fadeInDown');
+					});
+				} else if ($now.hasClass('cls2-3') && $('.cls2-3 .t2-3').css('display') == 'none') {
+					$('.cls2-3 .t2-3').show().addClass('animated fadeInDown').on('webkitAnimationEnd', function() {
+						$('.cls2-3 .t2-3').removeClass('animated fadeInDown');
+					});
+
+				}
+			},
+			pagend : function(data) {
+				var $now = $(data.now);
+
+				if ($now.hasClass('cls2-1')) {
+					$all.not('.cls2-1 .content, .cls2-1 .t2-1').css(NONE);
+				} else if ($now.hasClass('cls2-2')) {
+					$all.not('.cls2-2 .cls2-2-1, .cls2-2 .t2-2').css(NONE);
+				} else if ($now.hasClass('cls2-3')) {
+					$all.not('.cls2-3 .content, .cls2-3 .t2-3').css(NONE);
+				}
+			}
+		});
+	}
+	</script>
+</body>
+</html>
